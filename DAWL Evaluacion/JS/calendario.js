@@ -10,7 +10,7 @@ window.onload = function () {
 
 //Registro de un nuevo cliente al enviar el formulario
 document.getElementById("clienteForm").addEventListener("submit", function (e) {
-    e.preventDefault(); // Evita que la página se recargue al enviar el formulario
+    e.preventDefault(); //Evita que la página se recargue al enviar el formulario
 
     //Captura de los valores del formulario
     let nombre = document.getElementById("nombre").value;
@@ -126,8 +126,13 @@ function mostrarPrestamos() {
         let hoy = new Date();
         let vencimiento = new Date(p.fechaVencimiento);
 
-        //Calcula los días restantes hasta el vencimiento
+        // Calcula los días restantes hasta el vencimiento
         let diasRestantes = Math.ceil((vencimiento - hoy) / (1000 * 60 * 60 * 24));
+
+        // Alerta si quedan exactamente 2 días antes del vencimiento
+        if (diasRestantes === 2 && p.estado === "Activo") {
+            alert(`El préstamo de ${p.cliente} vence en 2 días.`);
+        }
 
         //Determina la clase CSS según el estado del préstamo
         let alerta = (diasRestantes <= 2 && p.estado === "Activo") ? 'class="alerta"' : "";
