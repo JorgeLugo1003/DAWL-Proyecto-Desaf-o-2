@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Préstamos</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div>
+        <h1>Gestión de Préstamos</h1>
+    </div>
+    
+    <h2>Registro de Cliente</h2>
+    <form id="clienteForm">
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="dui" placeholder="DUI" required>
+        <input type="tel" id="telefono" placeholder="Teléfono" required>
+        <input type="email" id="correo" placeholder="Correo" required>
+        <button type="submit">Registrar Cliente</button>
+    </form>
+
+    <h2>Registro de Préstamo</h2>
+    <form id="prestamoForm">
+        <select id="clienteSelect" required>
+            <option value="">Seleccione un cliente</option>
+        </select>
+        <input type="number" id="monto" placeholder="Monto a prestar" required>
+        <input type="date" id="fechaInicio" required>
+        <button type="submit">Registrar Préstamo</button>
+    </form>
+
+    <h2>Historial de Préstamos</h2>
+    <input type="date" id="filtrarFecha">
+    <button onclick="filtrarPrestamos()">Buscar</button>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cliente</th>
+                <th>Monto</th>
+                <th>Interés</th>
+                <th>Total a Pagar</th>
+                <th>Fecha de Vencimiento</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tablaPrestamos"></tbody>
+    </table>
+
+    <script src="JS/calendario.js"></script>
+</body>
+</html>
